@@ -61,12 +61,5 @@ done
 %license COPYING.md
 %doc %{_docdir}/%{name}
 %{_mandir}/man1/%{name}*
-%{_bindir}/%{name}
-%{_bindir}/%{name}-create
-%{_bindir}/%{name}-enter
-%{_bindir}/%{name}-export
-%{_bindir}/%{name}-init
-%{_bindir}/%{name}-list
-%{_bindir}/%{name}-rm
-%{_bindir}/%{name}-stop
-%{_bindir}/%{name}-host-exec
+%{_bindir}/%{name}*
+%{_iconsdir}/hicolor/*x*/apps/terminal-distrobox-icon.png

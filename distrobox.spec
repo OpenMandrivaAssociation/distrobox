@@ -12,7 +12,9 @@ URL:     https://github.com/89luca89/distrobox/
 Source0:  https://github.com/89luca89/distrobox/archive/%{version}/%{name}-%{version}.tar.gz
  
 BuildArch: noarch
- 
+
+BuildRequires: imagemagick
+
 Requires: (podman or %{_bindir}/docker)
 Requires: %{_bindir}/basename
 Requires: %{_bindir}/find

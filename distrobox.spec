@@ -37,11 +37,6 @@ install -d -m0755 %{buildroot}%{_bindir}
 install -d -m0755 %{buildroot}%{_docdir}/%{name}
 install -m 0644 docs/*.md %{buildroot}%{_docdir}/%{name}
  
-%check
-%{buildroot}%{_bindir}/%{name} list -V
-for i in create enter export init list rm stop host-exec; do
-    %{buildroot}%{_bindir}/%{name}-$i -V
-done
  
 %files
 %license COPYING.md

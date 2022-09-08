@@ -31,11 +31,28 @@ external usb devices and graphical apps (X11/Wayland) and audio.
 %build
  
 %install
-install -d -m0755 %{buildroot}%{_bindir}
-./install -p %{buildroot}%{_bindir}
+./install -P %{buildroot}/%{_prefix}
  
 install -d -m0755 %{buildroot}%{_docdir}/%{name}
 install -m 0644 docs/*.md %{buildroot}%{_docdir}/%{name}
+ 
+# Move the icon 
+mkdir -p %{buildroot}%{_datadir}/icons/hicolor/1200x1200/apps
+mv %{buildroot}%{_datadir}/icons/terminal-distrobox-icon.png \
+   %{buildroot}%{_datadir}/icons/hicolor/1200x1200/apps
+ 
+# Generate more icon sizes
+for sz in 16 22 24 32 36 48 64 72 96 128 256; do
+  mkdir -p %{buildroot}%{_datadir}/icons/hicolor/${sz}x${sz}/apps
+  convert terminal-distrobox-icon.png -resize ${sz}x${sz} \
+    %{buildroot}%{_datadir}/icons/hicolor/${sz}x${sz}/apps/terminal-distrobox-icon.png
+done
+ 
+%check
+%{buildroot}%{_bindir}/%{name} list -V
+for i in create enter export init list rm stop host-exec; do
+    %{buildroot}%{_bindir}/%{name}-$i -V
+done
  
  
 %files

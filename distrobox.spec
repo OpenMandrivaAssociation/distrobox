@@ -63,3 +63,4 @@ done
 %{_mandir}/man1/%{name}*
 %{_bindir}/%{name}*
 %{_iconsdir}/hicolor/*x*/apps/terminal-distrobox-icon.png
+%{_datadir}/bash-completion/completions/distrobox*

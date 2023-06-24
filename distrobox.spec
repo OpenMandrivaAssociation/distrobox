@@ -39,14 +39,14 @@ install -d -m0755 %{buildroot}%{_docdir}/%{name}
 install -m 0644 docs/*.md %{buildroot}%{_docdir}/%{name}
  
 # Move the icon 
-mkdir -p %{buildroot}%{_datadir}/icons/hicolor/1200x1200/apps
-mv %{buildroot}%{_datadir}/icons/terminal-distrobox-icon.png \
-   %{buildroot}%{_datadir}/icons/hicolor/1200x1200/apps
+mkdir -p %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+mv %{buildroot}%{_datadir}/icons/terminal-distrobox-icon.svg \
+   %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
  
 # Generate more icon sizes
 for sz in 16 22 24 32 36 48 64 72 96 128 256; do
   mkdir -p %{buildroot}%{_datadir}/icons/hicolor/${sz}x${sz}/apps
-  convert terminal-distrobox-icon.png -resize ${sz}x${sz} \
+  convert terminal-distrobox-icon.svg -resize ${sz}x${sz} \
     %{buildroot}%{_datadir}/icons/hicolor/${sz}x${sz}/apps/terminal-distrobox-icon.png
 done
  
@@ -63,4 +63,5 @@ done
 %{_mandir}/man1/%{name}*
 %{_bindir}/%{name}*
 %{_iconsdir}/hicolor/*x*/apps/terminal-distrobox-icon.png
+%{_datadir}/icons/hicolor/scalable/apps/terminal-distrobox-icon.svg
 %{_datadir}/bash-completion/completions/distrobox*

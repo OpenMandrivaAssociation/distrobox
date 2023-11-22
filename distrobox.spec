@@ -4,7 +4,7 @@
 %global __brp_mangle_shebangs_exclude_from %{_bindir}/distrobox-(export|init)$
 
 Name:    distrobox
-Version: 1.5.0.2
+Version: 1.6.0.1
 Release: 1
 Summary: Another tool for containerized command line environments on Linux 
 License: GPLv3

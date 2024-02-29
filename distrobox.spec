@@ -65,3 +65,4 @@ done
 %{_iconsdir}/hicolor/*x*/apps/terminal-distrobox-icon.png
 %{_datadir}/icons/hicolor/scalable/apps/terminal-distrobox-icon.svg
 %{_datadir}/bash-completion/completions/distrobox*
+%{_datadir}/zsh/site-functions/

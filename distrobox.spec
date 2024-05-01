@@ -4,7 +4,7 @@
 %global __brp_mangle_shebangs_exclude_from %{_bindir}/distrobox-(export|init)$
 
 Name:    distrobox
-Version: 1.7.1
+Version: 1.7.2.0
 Release: 1
 Summary: Another tool for containerized command line environments on Linux 
 License: GPLv3
@@ -34,21 +34,6 @@ external usb devices and graphical apps (X11/Wayland) and audio.
  
 %install
 ./install -P %{buildroot}/%{_prefix}
- 
-install -d -m0755 %{buildroot}%{_docdir}/%{name}
-install -m 0644 docs/*.md %{buildroot}%{_docdir}/%{name}
- 
-# Move the icon 
-mkdir -p %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
-mv %{buildroot}%{_datadir}/icons/terminal-distrobox-icon.svg \
-   %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
- 
-# Generate more icon sizes
-for sz in 16 22 24 32 36 48 64 72 96 128 256; do
-  mkdir -p %{buildroot}%{_datadir}/icons/hicolor/${sz}x${sz}/apps
-  convert terminal-distrobox-icon.svg -resize ${sz}x${sz} \
-    %{buildroot}%{_datadir}/icons/hicolor/${sz}x${sz}/apps/terminal-distrobox-icon.png
-done
  
 %check
 %{buildroot}%{_bindir}/%{name} list -V

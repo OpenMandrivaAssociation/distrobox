@@ -1,4 +1,5 @@
 #global debug_package %{nil}
+%define _empty_manifest_terminate_build 0
  
 # https://github.com/89luca89/distrobox/issues/127
 %global __brp_mangle_shebangs_exclude_from %{_bindir}/distrobox-(export|init)$

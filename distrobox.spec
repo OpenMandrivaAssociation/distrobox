@@ -6,7 +6,7 @@
 
 Name:    distrobox
 Version: 1.8.2.3
-Release: 1
+Release: 2
 Summary: Another tool for containerized command line environments on Linux 
 License: GPLv3
 URL:     https://github.com/89luca89/distrobox/
